@@ -32,7 +32,7 @@ index fd3b0d8..62c7405 100644
  	ATTR_NULL       = 0,
  	ATTR_BOLD       = 1 << 0,
 diff --git a/x.c b/x.c
-index d73152b..a152ea8 100644
+index d73152b..1c4b9aa 100644
 --- a/x.c
 +++ b/x.c
 @@ -94,6 +94,12 @@ typedef struct {
@@ -87,7 +87,7 @@ index d73152b..a152ea8 100644
  	do {
  		if (XGetWindowProperty(xw.dpy, xw.win, property, ofs,
  					BUFSIZ/4, False, AnyPropertyType,
-@@ -604,6 +621,93 @@ selnotify(XEvent *e)
+@@ -604,6 +621,95 @@ selnotify(XEvent *e)
  	XDeleteProperty(xw.dpy, xw.win, (int)property);
  }
  
@@ -169,7 +169,9 @@ index d73152b..a152ea8 100644
 +
 +	t = strtok(data, "\n\r");
 +	while(t != NULL) {
-+		t += 7; /* remove 'file://' prefix */
++		/* remove 'file://' prefix if it exists */
++		if (strncmp(data, "file://", 7) == 0)
++			t += 7;
 +		i += xdndurldecode(t, pastedata + i);
 +		t = strtok(NULL, "\n\r");
 +	}
@@ -181,7 +183,7 @@ index d73152b..a152ea8 100644
  void
  xclipcopy(void)
  {
-@@ -1227,6 +1331,26 @@ xinit(int cols, int rows)
+@@ -1227,6 +1333,26 @@ xinit(int cols, int rows)
  	XChangeProperty(xw.dpy, xw.win, xw.netwmpid, XA_CARDINAL, 32,
  			PropModeReplace, (uchar *)&thispid, 1);
  
@@ -208,7 +210,7 @@ index d73152b..a152ea8 100644
  	win.mode = MODE_NUMLOCK;
  	resettitle();
  	xhints();
-@@ -1908,6 +2032,132 @@ cmessage(XEvent *e)
+@@ -1908,6 +2034,132 @@ cmessage(XEvent *e)
  	} else if (e->xclient.data.l[0] == xw.wmdeletewin) {
  		ttyhangup();
  		exit(0);
