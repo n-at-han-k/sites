@@ -39,7 +39,7 @@ Configuration
 
 Download
 --------
-* [dwm-autodarkmode-20240602-6.5.diff](dwm-autodarkmode-20240602-6.5.diff)
+* [dwm-autodarkmode-20250224-6.5.diff](dwm-autodarkmode-20250224-6.5.diff)
 
 Author
 ------

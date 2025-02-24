@@ -39,18 +39,26 @@ index 9efa774..8a8d3be 100644
  	{ MODKEY,                       XK_b,      togglebar,      {0} },
  	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 diff --git a/dwm.c b/dwm.c
-index f1d86b2..d4e3ddc 100644
+index f1d86b2..bd9cf3d 100644
 --- a/dwm.c
 +++ b/dwm.c
-@@ -198,6 +198,7 @@ static void scan(void);
+@@ -153,6 +153,7 @@ static void checkotherwm(void);
+ static void cleanup(void);
+ static void cleanupmon(Monitor *mon);
+ static void clientmessage(XEvent *e);
++static void colormodehandler(int sig);
+ static void configure(Client *c);
+ static void configurenotify(XEvent *e);
+ static void configurerequest(XEvent *e);
+@@ -198,6 +199,7 @@ static void scan(void);
  static int sendevent(Client *c, Atom proto);
  static void sendmon(Client *c, Monitor *m);
  static void setclientstate(Client *c, long state);
-+static void setcolormode(int sig);
++static void setcolormode(void);
  static void setfocus(Client *c);
  static void setfullscreen(Client *c, int fullscreen);
  static void setlayout(const Arg *arg);
-@@ -206,6 +207,7 @@ static void setup(void);
+@@ -206,6 +208,7 @@ static void setup(void);
  static void seturgent(Client *c, int urg);
  static void showhide(Client *c);
  static void spawn(const Arg *arg);
@@ -58,7 +66,7 @@ index f1d86b2..d4e3ddc 100644
  static void tag(const Arg *arg);
  static void tagmon(const Arg *arg);
  static void tile(Monitor *m);
-@@ -262,11 +264,12 @@ static void (*handler[LASTEvent]) (XEvent *) = {
+@@ -262,11 +265,13 @@ static void (*handler[LASTEvent]) (XEvent *) = {
  static Atom wmatom[WMLast], netatom[NetLast];
  static int running = 1;
  static Cur *cursor[CurLast];
@@ -69,10 +77,11 @@ index f1d86b2..d4e3ddc 100644
  static Monitor *mons, *selmon;
  static Window root, wmcheckwin;
 +static const char **dmenucmd;
++static int colormodechanged;
  
  /* configuration, allows nested code to access above variables */
  #include "config.h"
-@@ -486,9 +489,12 @@ cleanup(void)
+@@ -486,9 +491,12 @@ cleanup(void)
  		cleanupmon(mons);
  	for (i = 0; i < CurLast; i++)
  		drw_cur_free(drw, cursor[i]);
@@ -88,12 +97,36 @@ index f1d86b2..d4e3ddc 100644
  	XDestroyWindow(dpy, wmcheckwin);
  	drw_free(drw);
  	XSync(dpy, False);
-@@ -1442,6 +1448,32 @@ setclientstate(Client *c, long state)
+@@ -531,6 +539,12 @@ clientmessage(XEvent *e)
+ 	}
+ }
+ 
++void
++colormodehandler(int sig)
++{
++  colormodechanged = 1;
++}
++
+ void
+ configure(Client *c)
+ {
+@@ -1225,6 +1239,10 @@ propertynotify(XEvent *e)
+ 	Window trans;
+ 	XPropertyEvent *ev = &e->xproperty;
+ 
++  if (colormodechanged) {
++    setcolormode();
++    colormodechanged = 0;
++  }
+ 	if ((ev->window == root) && (ev->atom == XA_WM_NAME))
+ 		updatestatus();
+ 	else if (ev->state == PropertyDelete)
+@@ -1442,6 +1460,32 @@ setclientstate(Client *c, long state)
  		PropModeReplace, (unsigned char *)data, 2);
  }
  
 +void
-+setcolormode(int sig)
++setcolormode(void)
 +{
 +	static const char *file = ".lightmode";
 +	static char *path = NULL;
@@ -121,19 +154,19 @@ index f1d86b2..d4e3ddc 100644
  int
  sendevent(Client *c, Atom proto)
  {
-@@ -1550,6 +1582,11 @@ setup(void)
+@@ -1550,6 +1594,11 @@ setup(void)
  	sa.sa_handler = SIG_IGN;
  	sigaction(SIGCHLD, &sa, NULL);
  
 +	/* set color mode on SIGHUP */
 +	sigemptyset(&sa.sa_mask);
-+	sa.sa_handler = setcolormode;
++	sa.sa_handler = colormodehandler;
 +	sigaction(SIGHUP, &sa, NULL);
 +
  	/* clean up any zombies (inherited from .xinitrc etc) immediately */
  	while (waitpid(-1, NULL, WNOHANG) > 0);
  
-@@ -1584,9 +1621,13 @@ setup(void)
+@@ -1584,9 +1633,13 @@ setup(void)
  	cursor[CurResize] = drw_cur_create(drw, XC_sizing);
  	cursor[CurMove] = drw_cur_create(drw, XC_fleur);
  	/* init appearance */
@@ -146,11 +179,11 @@ index f1d86b2..d4e3ddc 100644
 +		schemedark[i] = drw_scm_create(drw, colorsdark[i], 3);
 +		schemelight[i] = drw_scm_create(drw, colorslight[i], 3);
 +	}
-+	setcolormode(0);
++  setcolormode();
  	/* init bars */
  	updatebars();
  	updatestatus();
-@@ -1649,8 +1690,6 @@ spawn(const Arg *arg)
+@@ -1649,8 +1702,6 @@ spawn(const Arg *arg)
  {
  	struct sigaction sa;
  
@@ -159,7 +192,7 @@ index f1d86b2..d4e3ddc 100644
  	if (fork() == 0) {
  		if (dpy)
  			close(ConnectionNumber(dpy));
-@@ -1666,6 +1705,13 @@ spawn(const Arg *arg)
+@@ -1666,6 +1717,13 @@ spawn(const Arg *arg)
  	}
  }
  
