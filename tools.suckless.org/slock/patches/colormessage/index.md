@@ -32,9 +32,11 @@ This adds three items to `config.h`:
 Download
 --------
 * [slock-colormessage-20200210-35633d4.diff](slock-colormessage-20200210-35633d4.diff)
+* [slock-colormessage-20250226-a34d8fb.diff](slock-colormessage-20250226-a34d8fb.diff)
 
 
 Authors
 -------
 * Guy Shefy - guyshefyb@gmail.com
 * Based on patch by Blair Drummond - blair.robert.drummond@gmail.com
+* Max Schillinger - maxschillinger@web.de (20250226 version)
