@@ -46,3 +46,4 @@ Download
 * [dmenu_vcard](https://github.com/PatrikTrefil/dmenu_vcard): Script to get e-mails and phone numbers to your clipboard using dmenu.
 * [dmenu_shot](https://codeberg.org/mehrad/dmenu_shot): Script to take screenshot using Flameshot and do image manipulation on using ImageMagic the output.
 * [dmenu-translate](https://github.com/NikitaIvanovV/dmenu-translate): Script to quickly translate text and look up word definitions
+* [xboomx](https://github.com/sciunto-org/xboomx/): dmenu software launcher written in Python sorted by usage frequency with good performances.
