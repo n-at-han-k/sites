@@ -3,8 +3,8 @@ hiltjo
 
 Greetings traveler,
 
-I'm the current maintainer of some suckless projects (dmenu, dwm, ii, st) and
-have contributed patches to various suckless projects.
+I'm the current maintainer of some suckless projects (dmenu, dmenu dwm, ii,
+slock, st, tabbed) and have contributed patches to various suckless projects.
 
 Website:    <https://codemadness.org/>.  
 Gopherhole: <gopher://codemadness.org>.  
