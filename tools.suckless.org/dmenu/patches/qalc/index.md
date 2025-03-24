@@ -15,7 +15,7 @@ Uses `poll` to update result on key press for smooth feedback.
 ## Download
 
 - [dmenu-qalc-5.2.diff](./dmenu-qalc-5.2.diff)
-- [dmenu-qalc-5.3.diff](./dmenu-qalc-5.2.diff)
+- [dmenu-qalc-5.3.diff](./dmenu-qalc-5.3.diff)
 
 ## Authors
 
