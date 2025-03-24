@@ -12,7 +12,9 @@ if the Master interface is on.
 Download
 --------
 * [slstatus-alsa-master-20230420-84a2f11.diff](slstatus-alsa-master-20230420-84a2f11.diff)
+* [slstatus-alsa-master-20250324-f68f492.diff](slstatus-alsa-master-20250324-f68f492.diff)
 
 Authors
 -------
 * William Rabbermann <willrabbermann@gmail.com>
+* gildasio <gildasiojunior@riseup.net) (update to 1.0)
