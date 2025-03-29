@@ -23,9 +23,10 @@ ctrl-r, like in bash or ksh, and the suggestions will be replaced with
 the history. Press ctrl-r again to revert.
 
 * [dmenu-navhistory+search-20200709.diff](dmenu-navhistory+search-20200709.diff)
-
+* [dmenu-navhistory+search-20250328-52fc8a0.diff](dmenu-navhistory+search-20250328-52fc8a0.diff) (2025-03-28)
 
 Author
 ------
 * phi <crispyfrog@163.com>
 * Philip K. - philipk (at) posteo (dot) net
+* [El Bachir](https://github.com/elbachir-one) (2025-03-28)
