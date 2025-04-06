@@ -1,0 +1,81 @@
+From 826f4841b27fba77b2fce753c2ec6b44c910afe5 Mon Sep 17 00:00:00 2001
+From: Mertoalex Ashley <mertoalex+git@disroot.org>
+Date: Sat, 5 Apr 2025 00:33:59 +0300
+Subject: [PATCH] lesscases patch and customcursor together
+
+---
+ config.def.h | 11 ++++++-----
+ x.c          | 16 ++++++++--------
+ 2 files changed, 14 insertions(+), 13 deletions(-)
+
+diff --git a/config.def.h b/config.def.h
+index 2cd740a..501523d 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -136,12 +136,13 @@ static unsigned int defaultrcs = 257;
+ 
+ /*
+  * Default shape of cursor
+- * 2: Block ("█")
+- * 4: Underline ("_")
+- * 6: Bar ("|")
+- * 7: Snowman ("☃")
++ * 0: Block ("█")
++ * 1: Underline ("_")
++ * 2: Bar ("|")
++ * 3: Custom (Default: "☃")
+  */
+-static unsigned int cursorshape = 2;
++static unsigned int cursorshape = 0;
++#define CUSTOM_BLOCK 0x2603 /* snowman (U+2603) */
+ 
+ /*
+  * Default columns and rows numbers
+diff --git a/x.c b/x.c
+index d73152b..bdd74a1 100644
+--- a/x.c
++++ b/x.c
+@@ -1561,24 +1561,24 @@ xdrawcursor(int cx, int cy, Glyph g, int ox, int oy, Glyph og)
+ 	/* draw the new one */
+ 	if (IS_SET(MODE_FOCUSED)) {
+ 		switch (win.cursor) {
+-		case 7: /* st extension */
++		case 3: /* st extension */
++			#ifdef CUSTOM_BLOCK
++			g.u = CUSTOM_BLOCK;
++			#else
+ 			g.u = 0x2603; /* snowman (U+2603) */
++			#endif
+ 			/* FALLTHROUGH */
+ 		case 0: /* Blinking Block */
+-		case 1: /* Blinking Block (Default) */
+-		case 2: /* Steady Block */
+ 			xdrawglyph(g, cx, cy);
+ 			break;
+-		case 3: /* Blinking Underline */
+-		case 4: /* Steady Underline */
++		case 1: /* Blinking Underline */
+ 			XftDrawRect(xw.draw, &drawcol,
+ 					borderpx + cx * win.cw,
+ 					borderpx + (cy + 1) * win.ch - \
+ 						cursorthickness,
+ 					win.cw, cursorthickness);
+ 			break;
+-		case 5: /* Blinking bar */
+-		case 6: /* Steady bar */
++		case 2: /* Blinking bar */
+ 			XftDrawRect(xw.draw, &drawcol,
+ 					borderpx + cx * win.cw,
+ 					borderpx + cy * win.ch,
+@@ -1746,7 +1746,7 @@ xsetmode(int set, unsigned int flags)
+ int
+ xsetcursor(int cursor)
+ {
+-	if (!BETWEEN(cursor, 0, 7)) /* 7: st extension */
++	if (!BETWEEN(cursor, 0, 3)) /* 3: st extension */
+ 		return 1;
+ 	win.cursor = cursor;
+ 	return 0;
+-- 
+2.48.1
+
