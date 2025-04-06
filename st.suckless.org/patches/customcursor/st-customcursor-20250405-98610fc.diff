@@ -1,0 +1,45 @@
+From 7e301a937ca2c8923e54ba159b387425cf213167 Mon Sep 17 00:00:00 2001
+From: Mertoalex Ashley <mertoalex+git@disroot.org>
+Date: Sat, 5 Apr 2025 02:23:30 +0300
+Subject: [PATCH] adding macro to set set custom cursor for st extension.
+
+---
+ config.def.h | 3 ++-
+ x.c          | 4 ++++
+ 2 files changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/config.def.h b/config.def.h
+index 2cd740a..80dc484 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -139,9 +139,10 @@ static unsigned int defaultrcs = 257;
+  * 2: Block ("█")
+  * 4: Underline ("_")
+  * 6: Bar ("|")
+- * 7: Snowman ("☃")
++ * 7: Custom block (default: "☃")
+  */
+ static unsigned int cursorshape = 2;
++#define CUSTOM_BLOCK 0x2603 /* snowman (U+2603) */
+ 
+ /*
+  * Default columns and rows numbers
+diff --git a/x.c b/x.c
+index d73152b..353635c 100644
+--- a/x.c
++++ b/x.c
+@@ -1562,7 +1562,11 @@ xdrawcursor(int cx, int cy, Glyph g, int ox, int oy, Glyph og)
+ 	if (IS_SET(MODE_FOCUSED)) {
+ 		switch (win.cursor) {
+ 		case 7: /* st extension */
++			#ifdef CUSTOM_BLOCK
++			g.u = CUSTOM_BLOCK;
++			#else
+ 			g.u = 0x2603; /* snowman (U+2603) */
++			#endif
+ 			/* FALLTHROUGH */
+ 		case 0: /* Blinking Block */
+ 		case 1: /* Blinking Block (Default) */
+-- 
+2.48.1
+
