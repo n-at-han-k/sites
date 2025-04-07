@@ -3,16 +3,16 @@ customcursor
 
 Description
 -----------
-This patch adds a constant value called `CUSTOM_BLOCK` to config.def.h to change snowman with custom cursor.
+This patch adds a constant named `CUSTOM_BLOCK` to `config.def.h`,
+allowing you to replace the snowman cursor with a custom one.
 
+#### Example
 
-Example
--------
 `static unsigned int cursorshape = 7;`
 
 `#define CUSTOM_BLOCK 0x003B /* semicolon (U+003B) */`
 
-[![custom-cursor-as-semicolon](st-customcursor.png)](st-customcursor.png)
+[![Screenshot](st-customcursor.png)](st-customcursor.png)
 
 Download
 --------
