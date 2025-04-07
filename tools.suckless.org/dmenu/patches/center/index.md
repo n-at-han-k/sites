@@ -23,9 +23,11 @@ Download
 * [dmenu-center-20200111-8cd37e1.diff](dmenu-center-20200111-8cd37e1.diff)
 * [dmenu-center-5.2.diff](dmenu-center-5.2.diff)
 * [dmenu-center-20240616-36c3d68.diff](dmenu-center-20240616-36c3d68.diff)
+* [dmenu-center-20250407-b1e217b.diff](dmenu-center-20250407-b1e217b.diff)
 
 Authors
 -------
 * Ed van Bruggen <edvb@uw.edu>
 * Nihal Jere <nihal@nihaljere.xyz> (20200111)
 * El Bachir Kassimi <bachiralfa@gmail.com> (20240616)
+* Leliel <mail.leliel@proton.me> (20250407)
