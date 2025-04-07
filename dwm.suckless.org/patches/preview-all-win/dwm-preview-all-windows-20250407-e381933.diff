@@ -1,12 +1,23 @@
+From e381933255718c6ed30e1b930d8fd76d62ccda75 Mon Sep 17 00:00:00 2001
+From: elbachir-one <bachiralfa@gmail.com>
+Date: Mon, 7 Apr 2025 06:02:14 +0100
+Subject: [PATCH] Added some keys to move/select around windows in the preview
+
+---
+ config.def.h |   4 +
+ config.mk    |   2 +-
+ dwm.c        | 307 +++++++++++++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 312 insertions(+), 1 deletion(-)
+
 diff --git a/config.def.h b/config.def.h
-index 4412cb1..24f39a7 100644
+index 4412cb1..37feaf7 100644
 --- a/config.def.h
 +++ b/config.def.h
 @@ -1,5 +1,8 @@
  /* See LICENSE file for copyright and license details. */
  
 +//#define ACTUALFULLSCREEN /* Uncomment if the actualfullscreen patch is added */
-+//#define AWESOMEBAR       /* Uncommnet if the awesomebar patch is used */
++//#define AWESOMEBAR /* Uncommnet if the awesomebar patch is used */
 +
  /* appearance */
  static const unsigned int borderpx  = 1;        /* border pixel of windows */
@@ -15,7 +26,7 @@ index 4412cb1..24f39a7 100644
  	TAGKEYS(                        XK_8,                      7)
  	TAGKEYS(                        XK_9,                      8)
  	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-+ 	{ MODKEY,                       XK_r,      previewallwin,  {0} },
++	{ MODKEY,                       XK_r,      togglepreviewallwin,  {0} },
  };
  
  /* button definitions */
@@ -33,7 +44,7 @@ index 8efca9a..8df2978 100644
  # flags
  CPPFLAGS = -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=700L -DVERSION=\"${VERSION}\" ${XINERAMAFLAGS}
 diff --git a/dwm.c b/dwm.c
-index 1443802..ac561fa 100644
+index 1443802..6d38874 100644
 --- a/dwm.c
 +++ b/dwm.c
 @@ -40,6 +40,7 @@
@@ -69,27 +80,56 @@ index 1443802..ac561fa 100644
  };
  
  typedef struct {
-@@ -232,6 +244,10 @@ static int xerror(Display *dpy, XErrorEvent *ee);
+@@ -232,8 +244,14 @@ static int xerror(Display *dpy, XErrorEvent *ee);
  static int xerrordummy(Display *dpy, XErrorEvent *ee);
  static int xerrorstart(Display *dpy, XErrorEvent *ee);
  static void zoom(const Arg *arg);
-+static void previewallwin();
++static void togglepreviewallwin();
++static void highlightwindow(int idx, Monitor *m);
 +static void setpreviewwindowsizepositions(unsigned int n, Monitor *m, unsigned int gappo, unsigned int gappi);
 +static XImage *getwindowximage(Client *c);
 +static XImage *scaledownimage(XImage *orig_image, unsigned int cw, unsigned int ch);
  
  /* variables */
++
  static const char broken[] = "broken";
-@@ -2139,6 +2155,210 @@ zoom(const Arg *arg)
+ static char stext[256];
+ static int screen;
+@@ -266,6 +284,7 @@ static Display *dpy;
+ static Drw *drw;
+ static Monitor *mons, *selmon;
+ static Window root, wmcheckwin;
++static int previewallwin = 0;
+ 
+ /* configuration, allows nested code to access above variables */
+ #include "config.h"
+@@ -2139,6 +2158,294 @@ zoom(const Arg *arg)
  	pop(c);
  }
  
 +void
-+previewallwin(){
++togglepreviewallwin() {
++	if (previewallwin) {  /* If already active, disable preview */
++		previewallwin = 0;
++		for (Client *c = selmon->clients; c; c = c->next) {
++			XUnmapWindow(dpy, c->pre.win);
++			XMapWindow(dpy, c->win);
++			if (c->pre.orig_image)
++				XDestroyImage(c->pre.orig_image);
++			if (c->pre.scaled_image)
++				XDestroyImage(c->pre.scaled_image);
++		}
++		arrange(selmon);
++		focus(NULL);
++		return;  /* Exit function early to prevent running again */
++	}
++
++	previewallwin = 1;  /* Enable preview mode */
 +	Monitor *m = selmon;
 +	Client *c, *focus_c = NULL;
-+	unsigned int n;
-+	for (n = 0, c = m->clients; c; c = c->next, n++){
++	unsigned int n = 0;
++
++	for (c = m->clients; c; c = c->next, n++) {
 +#ifdef ACTUALFULLSCREEN
 +		if (c->isfullscreen)
 +			togglefullscr(&(Arg){0});
@@ -100,72 +140,139 @@ index 1443802..ac561fa 100644
 +#endif
 +		c->pre.orig_image = getwindowximage(c);
 +	}
-+	if (n == 0)
-+		return;
++
++	if (n == 0) return;
++
 +	setpreviewwindowsizepositions(n, m, 60, 15);
 +	XEvent event;
-+	for(c = m->clients; c; c = c->next){
++
++	for (c = m->clients; c; c = c->next) {
 +		if (!c->pre.win)
-+			c->pre.win = XCreateSimpleWindow(dpy, root, c->pre.x, c->pre.y, c->pre.scaled_image->width, c->pre.scaled_image->height, 1, BlackPixel(dpy, screen), WhitePixel(dpy, screen));
++			c->pre.win = XCreateSimpleWindow(dpy, root, c->pre.x, c->pre.y,
++					c->pre.scaled_image->width, c->pre.scaled_image->height,
++					1, BlackPixel(dpy, screen), WhitePixel(dpy, screen));
 +		else
-+			XMoveResizeWindow(dpy, c->pre.win, c->pre.x, c->pre.y, c->pre.scaled_image->width, c->pre.scaled_image->height);
++			XMoveResizeWindow(dpy, c->pre.win, c->pre.x, c->pre.y,
++					c->pre.scaled_image->width, c->pre.scaled_image->height);
++
 +		XSetWindowBorder(dpy, c->pre.win, scheme[SchemeNorm][ColBorder].pixel);
 +		XUnmapWindow(dpy, c->win);
-+		if (c->pre.win){
-+			XSelectInput(dpy, c->pre.win, ButtonPress | EnterWindowMask | LeaveWindowMask );
++
++		if (c->pre.win) {
++			XSelectInput(dpy, c->pre.win, ButtonPress | EnterWindowMask | LeaveWindowMask);
 +			XMapWindow(dpy, c->pre.win);
 +			GC gc = XCreateGC(dpy, c->pre.win, 0, NULL);
-+			XPutImage(dpy, c->pre.win, gc, c->pre.scaled_image, 0, 0, 0, 0, c->pre.scaled_image->width, c->pre.scaled_image->height);
++			XPutImage(dpy, c->pre.win, gc, c->pre.scaled_image, 0, 0, 0, 0,
++					c->pre.scaled_image->width, c->pre.scaled_image->height);
 +		}
 +	}
-+	while (1) {
++
++	int selected_idx = 0;
++
++	while (previewallwin) {
 +		XNextEvent(dpy, &event);
-+		if (event.type == ButtonPress)
-+			if (event.xbutton.button == Button1){
-+				for(c = m->clients; c; c = c->next){
-+					XUnmapWindow(dpy, c->pre.win);
-+					if (event.xbutton.window == c->pre.win){
-+						selmon->seltags ^= 1; /* toggle sel tagset */
-+						m->tagset[selmon->seltags] = c->tags;
-+						focus_c = c;
-+						focus(NULL);
-+#ifdef AWESOMEBAR
-+						if (HIDDEN(c)){
-+							showwin(c);
-+							continue;
-+						}
-+#endif
++		if (event.type == ButtonPress) {
++			if (event.xbutton.button == Button1) { /* Left-click to select a window */
++				for (c = selmon->clients; c; c = c->next) {
++					if (event.xbutton.window == c->pre.win) {
++						previewallwin = 0;
++						selmon->tagset[selmon->seltags] = c->tags;
++						focus(c);
++						arrange(selmon); /* Ensure layout updates correctly */
++						break;
 +					}
-+					/* If you hit awesomebar patch Unlock the notes below;
-+					 * And you should add the following line to "hidewin" Function
-+					 * c->pre.orig_image = getwindowximage(c);
-+					 * */
-+#ifdef AWESOMEBAR
-+					if (HIDDEN(c)){
-+						continue;
-+					}
-+#endif
-+					XMapWindow(dpy, c->win);
-+					XDestroyImage(c->pre.orig_image);
-+					XDestroyImage(c->pre.scaled_image);
 +				}
-+				break;
 +			}
-+		if (event.type == EnterNotify)
-+			for(c = m->clients; c; c = c->next)
-+				if (event.xcrossing.window == c->pre.win){
++		}
++		if (event.type == KeyPress) {
++			if (event.xkey.keycode == XKeysymToKeycode(dpy, XK_j)) {
++				if (selected_idx < n - 1) {
++					selected_idx++;
++				}
++				highlightwindow(selected_idx, m);
++			}
++			if (event.xkey.keycode == XKeysymToKeycode(dpy, XK_k)) {
++				if (selected_idx > 0) {
++					selected_idx--;
++				}
++				highlightwindow(selected_idx, m);
++			}
++			if (event.xkey.keycode == XKeysymToKeycode(dpy, XK_Return)) {
++				previewallwin = 0;
++				Client *selected_client = NULL;
++				int idx = 0;
++
++				for (c = m->clients; c; c = c->next, idx++) {
++					if (idx == selected_idx) {
++						selected_client = c;
++						break;
++					}
++				}
++				if (selected_client) {
++					selmon->tagset[selmon->seltags] = selected_client->tags;
++					focus(selected_client);
++					arrange(selmon);
++				}
++			}
++			if (event.xkey.keycode == XKeysymToKeycode(dpy, XK_r)) {
++				previewallwin = 0;
++				Client *selected_client = NULL;
++				int idx = 0;
++
++				for (c = m->clients; c; c = c->next, idx++) {
++					if (idx == selected_idx) {
++						selected_client = c;
++						break;
++					}
++				}
++				if (selected_client) {
++					selmon->tagset[selmon->seltags] = selected_client->tags;
++					focus(selected_client);
++					arrange(selmon);
++				}
++			}
++		}
++
++		if (event.type == EnterNotify) {
++			for (c = m->clients; c; c = c->next) {
++				if (event.xcrossing.window == c->pre.win) {
 +					XSetWindowBorder(dpy, c->pre.win, scheme[SchemeSel][ColBorder].pixel);
 +					break;
 +				}
-+		if (event.type == LeaveNotify)
-+			for(c = m->clients; c; c = c->next)
-+				if (event.xcrossing.window == c->pre.win){
++			}
++		}
++		if (event.type == LeaveNotify) {
++			for (c = m->clients; c; c = c->next) {
++				if (event.xcrossing.window == c->pre.win) {
 +					XSetWindowBorder(dpy, c->pre.win, scheme[SchemeNorm][ColBorder].pixel);
 +					break;
 +				}
++			}
++		}
++	}
++	for (c = selmon->clients; c; c = c->next) { /* Restore all windows when exiting */
++		XUnmapWindow(dpy, c->pre.win);
++		XMapWindow(dpy, c->win);
++		if (c->pre.orig_image)
++			XDestroyImage(c->pre.orig_image);
++		if (c->pre.scaled_image)
++			XDestroyImage(c->pre.scaled_image);
 +	}
 +	arrange(m);
 +	focus(focus_c);
++}
++
++void
++highlightwindow(int idx, Monitor *m) {
++	int i = 0;
++	Client *c;
++	for (c = m->clients; c; c = c->next, i++) {
++		if (i == idx) {
++			XSetWindowBorder(dpy, c->pre.win, scheme[SchemeSel][ColBorder].pixel); /* Highlight selected window */
++		} else {
++			XSetWindowBorder(dpy, c->pre.win, scheme[SchemeNorm][ColBorder].pixel); /* Reset border for other windows */
++		}
++	}
 +}
 +
 +void
