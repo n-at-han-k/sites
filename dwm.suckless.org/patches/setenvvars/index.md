@@ -1,14 +1,17 @@
-Set environment variables
-=========================
+setenvvars
+==========
 
 Description
 -----------
-Allow setting environment variables inside `config.h`. This is a port of the dwl patch [setupenv](https://codeberg.org/dwl/dwl-patches/src/branch/main/patches/setupenv) to dwm.
+Allows setting environment variables within `config.def.h`.
+This feature is ported from the dwl patch [setupenv](https://codeberg.org/dwl/dwl-patches/src/branch/main/patches/setupenv).
+
+Users of autostart patches should ensure that their autostart function
+inside `main()` is called after `setenvvars()`.
 
 Download
 --------
 * [dwm-setenvvars-6.5.diff](dwm-setenvvars-6.5.diff)
-* Users of autostart patches might need to make sure their autostart function inside main() is started after setenvvars().
 
 Authors
 -------
