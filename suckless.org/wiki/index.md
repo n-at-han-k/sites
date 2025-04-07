@@ -5,7 +5,8 @@ local host using the following command:
 
 	git clone git://git.suckless.org/sites
 
-or
+__You must use the git protocol, you will not be able to push your changes if you
+insist on using https:__
 
 	git clone https://git.suckless.org/sites
 
