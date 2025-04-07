@@ -1,18 +1,19 @@
 option
-=========
+======
 
 Description
 -----------
-This patch adds variable called `option` to config.def.h so st can run shell with argument.
+This patch adds a variable called `option` to `config.def.h`,
+allowing st to run the shell with an argument.
 
+#### Example
 
-Example
--------
 `static char *shell = "/usr/bin/ash";`
 
 `char *option = "-l";`
 
-so now st runs ash with `-l` argument so ash opens as login shell so it sources /etc/profile.d/ files.
+Now st runs `ash` with the `-l` argument, so `ash` starts as a login shell and sources
+the `/etc/profile.d/` files.
 
 [![ash-uses-profile.d-scripts](st-option-preview-grayscale.png)](st-option.png)
 
