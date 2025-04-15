@@ -15,7 +15,8 @@ Download
 --------
 * [slock-squares-1.5.diff](slock-squares-1.5.diff)
 
-Apply the following patch on top of the previous to have the number of squares equal the length of your current input (for responsive input):
+Apply the following patch on top of the previous one to ensure that the number
+of squares matches the length of your current input for responsive behavior.
 
 * [slock-squares-password-1.5.diff](slock-squares-password-1.5.diff)
 
