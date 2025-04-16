@@ -14,7 +14,7 @@ state (%s), capacity (%s). Example:
 
 Download
 --------
-* [slstatus-dyn_battery-20250414-f68f492.diff](slstatus-dyn_battery-20250414-f68f492.diff)
+* [slstatus-dyn_battery-20250416-f68f492.diff](slstatus-dyn_battery-20250416-f68f492.diff)
 
 Author
 ------

@@ -1,15 +1,14 @@
-From b96a72c277a72c77feaf94fac679f3ea87f78ea6 Mon Sep 17 00:00:00 2001
+From 44fcd213f975ae35fb92de9bc56d8d895478edb5 Mon Sep 17 00:00:00 2001
 From: Madison Lynch <madi@mxdi.xyz>
-Date: Mon, 14 Apr 2025 21:04:23 -0700
-Subject: [PATCH] Created dyn-battery patch, for displaying status of multiple
- batteries
+Date: Wed, 16 Apr 2025 16:18:33 -0700
+Subject: [PATCH] Improved memory-safety in dyn_battery function
 
 ---
  Makefile                 |  1 +
- components/dyn_battery.c | 77 ++++++++++++++++++++++++++++++++++++++++
- config.def.h             |  4 +++
+ components/dyn_battery.c | 84 ++++++++++++++++++++++++++++++++++++++++
+ config.def.h             |  3 ++
  slstatus.h               |  3 ++
- 4 files changed, 85 insertions(+)
+ 4 files changed, 91 insertions(+)
  create mode 100644 components/dyn_battery.c
 
 diff --git a/Makefile b/Makefile
@@ -26,10 +25,10 @@ index 7a18274..d1b24dd 100644
  	components/ip\
 diff --git a/components/dyn_battery.c b/components/dyn_battery.c
 new file mode 100644
-index 0000000..2e58351
+index 0000000..9377071
 --- /dev/null
 +++ b/components/dyn_battery.c
-@@ -0,0 +1,77 @@
+@@ -0,0 +1,84 @@
 +/* Written by Madison Lynch <madi@mxdi.xyz> */
 +/* Only Linux is supported */
 +#include <stdio.h>
@@ -74,51 +73,57 @@ index 0000000..2e58351
 +*/
 +const char *
 +dyn_battery(const char *fmt) {
++    static char *ret;
++    free(ret); // Free address from previous output
++
 +    const size_t fmt_s = strlen(fmt);
 +    const unsigned int bat_c = battery_count();
 +
 +    // Extra byte in calloc() for null byte
-+    char *output = (char *)calloc(fmt_s * bat_c + 1, sizeof(char));
++    ret = (char *)calloc(fmt_s * bat_c + 1, sizeof(char));
++    if(!ret) {
++        fprintf(stderr, "dyn_battery: calloc() failed.");
++        return NULL;
++    }
++
 +    unsigned int displacement = 0; // For appending battery displays
 +    for(unsigned int i=0; i<bat_c; i++) {
 +        char bat[7]; // "BAT" = 3 + <=3 digit number + null byte
-+        sprintf(bat, "BAT%u", i);
++        (void) sprintf(bat, "BAT%u", i);
 +
 +        // Add battery display to final string to be returned
-+        sprintf(
-+            output + displacement,
++        (void) sprintf(
++            ret + displacement,
 +            fmt,
 +            i,
 +            battery_state(bat),
 +            battery_perc(bat)
 +        );
-+        displacement = strlen(output);
++        displacement = strlen(ret);
 +
 +        // Add space between battery displays
-+        *(output + displacement) = ' ';
-+        displacement++;
++        ret[displacement++] = ' ';
 +    }
 +
 +    // Remove extra space after last battery display
-+    output[--displacement] = 0x00;
++    ret[--displacement] = '\0';
 +
-+    return output;
++    return ret;
 +}
 +
 +#undef BAT_DIR
 +#undef BAT_PREFIX
 diff --git a/config.def.h b/config.def.h
-index d805331..967d63d 100644
+index d805331..a0052e3 100644
 --- a/config.def.h
 +++ b/config.def.h
-@@ -26,6 +26,10 @@ static const char unknown_str[] = "n/a";
+@@ -26,6 +26,9 @@ static const char unknown_str[] = "n/a";
   * disk_perc           disk usage in percent           mountpoint path (/)
   * disk_total          total disk space in GB          mountpoint path (/)
   * disk_used           used disk space in GB           mountpoint path (/)
 + * dyn_battery         displays the name, state and    format string (%u, %s,
 + *                     capacity of all detected        %s). order is important,
 + *                     batteries                       and matches description.
-+ *                                                     (Linux only)
   * entropy             available entropy               NULL
   * gid                 GID of current user             NULL
   * hostname            hostname                        NULL
