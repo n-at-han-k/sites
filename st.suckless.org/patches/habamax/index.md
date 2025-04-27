@@ -3,8 +3,8 @@ habamax
 
 Description
 -----------
-[Habamax](https://github.com/habamax/vim-habamax) made by Maxim Kim, is one of Vim's default color schemes.  
-This patch makes the Habamax color scheme available for st.
+[Habamax](https://github.com/habamax/vim-habamax) created by Maxim Kim, is one of Vim's default color schemes.
+This patch ports the Habamax color scheme to be used with `st`.
 
 Download
 --------
@@ -12,5 +12,5 @@ Download
 
 Authors
 -------
-* Colorscheme: Maxim Kim - <habamax@gmail.com>
-* Patch: José Isac (Rasq) - <joseisac@tutamail.com>
+* Maxim Kim - <habamax@gmail.com> (Colorscheme)
+* José Isac (Rasq) - <joseisac@tutamail.com> (Patch)
