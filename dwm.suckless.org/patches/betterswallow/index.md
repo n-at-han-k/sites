@@ -30,21 +30,18 @@ ensure they are copied in the `copyclientpos` function.
 
 #### Usage
 
-To have any graphical program swallowed, run it as:
-```bash
-better-swallow <CMD>
-```
+To have any graphical program swallowed, run it as `better-swallow <CMD>`.
 This will cause any windows spawned by the command to replace the parent window.
-Since `betterswallow` is quite long, I recommend creating an alias, such as `bs`.
+Since `better-swallow` is quite long, I recommend creating an alias, such as `bs`.
 
 #### Limitations
 
 - Due to reliance on the `Xres` extension and PIDs, this will fail if the X server
-is not running on the same machine as `betterswallow`, and it may add nonsensical
-entries to the "swallow queue".
+  is not running on the same machine as `betterswallow`, and it may add nonsensical
+  entries to the "swallow queue".
 - If a swallowed process opens a window deeper in the process tree, it will not
-be swallowed. This may be fixed in the future by traversing the entire process
-chain rather than just one step up. Open an issue if you encounter this.
+  be swallowed. This may be fixed in the future by traversing the entire process
+  chain rather than just one step up. Open an issue if you encounter this.
 
 Download
 --------
