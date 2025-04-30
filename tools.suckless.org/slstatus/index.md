@@ -19,3 +19,4 @@ a copy using the following command:
 Download
 --------
 * [slstatus 1.0](//dl.suckless.org/tools/slstatus-1.0.tar.gz) (2023-07-04)
+* [slstatus 1.1](//dl.suckless.org/tools/slstatus-1.1.tar.gz) (2025-04-30)

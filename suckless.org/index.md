@@ -9,6 +9,9 @@ News
 
 [Atom feed](//suckless.org/atom.xml)
 
+2025-04-30
+----------
+[slstatus 1.1](//tools.suckless.org/slstatus) released: [download](//dl.suckless.org/tools/slstatus-1.1.tar.gz)
 
 2024-11-26
 ----------
