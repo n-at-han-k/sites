@@ -9,6 +9,15 @@ News
 
 [Atom feed](//suckless.org/atom.xml)
 
+2025-05-05
+----------
+On Sunday, 2025-05-11
+there will be scheduled maintenance of the suckless servers.
+It's estimated this will take about 2 hours
+from about 10:00 to 12:00 UTC.
+
+The mailinglist, website and source-code repositories will have some downtime.
+
 2025-04-30
 ----------
 [slstatus 1.1](//tools.suckless.org/slstatus) released: [download](//dl.suckless.org/tools/slstatus-1.1.tar.gz)
