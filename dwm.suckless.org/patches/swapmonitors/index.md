@@ -1,32 +1,35 @@
-# swapmonitors
+swapmonitors
+============
 
-## Description
+Description
+-----------
 
 This patch adds the ability to swap tagsets and clients between monitors in dwm.
-It helps users who use multiple monitors to quickly rearrange workspaces by moving
-all windows and tag assignments from one monitor to another.
+It is particularly useful for users with multiple monitors who want to quickly
+rearrange workspaces by moving all windows and their tag assignments from one
+monitor to another.
 
-## Usage
+#### Usage
 
-After applying the patch, the following key binding will be available by default:
+After applying the patch, the following key binding is available by default:
 
-MODKEY + Shift + Apostrophe (')
+**MODKEY + Shift + Apostrophe** (')
 
 This keybinding will:
 
-- Swap the currently active monitor's tagset with the adjacent monitor's tagset.
+- Swap the currently active monitor's tagset with that of the adjacent monitor.
 - Move all clients (windows) between the two monitors, effectively swapping their contents.
 
-> You can modify the keybinding by editing the following line in `config.def.h`:
+> You can customize this keybinding by modifying the following line in `config.def.h` file:
 >
 > ```c
 > { MODKEY|ShiftMask, XK_apostrophe, swapmon, {0} },
 > ```
 
-## Download
+Download
+--------
+* [dwm-swapmonitors-20250509-4cd2832.diff](dwm-swapmonitors-20250509-4cd2832.diff)
 
-- [dwm-swapmonitors-20250510-cfb8627.diff](dwm-swapmonitors-20250510-cfb8627.diff)
-
-## Author
-
-Jameel Sawafta <jameelhsawafta@gmail.com>
+Author
+------
+* Jameel Sawafta - <jameelhsawafta@gmail.com>
