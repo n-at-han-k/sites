@@ -1,33 +1,37 @@
-# swapwindows
+swapwindows
+===========
 
-## Description
+Description
+-----------
 
-This patch allows swapping the selected client (window) with the selected window
-on the other monitor. Useful for moving a window to the other monitor while
-preserving the window focus and order.
+This patch enables swapping the currently focused client (window) with the
+selected window on another monitor.
+It is useful for moving a window between monitors while preserving window focus
+and layout order.
 
-## Usage
+#### Usage
 
-After applying the patch, the following key binding will be available by default:
+After applying the patch, the following key binding is available by default:
 
-MODKEY + Shift + /
+**MODKEY + Shift + /**
 
 This keybinding will:
 
-- Swap the currently focused window with the focused window on the next monitor (if any).
-- If the other monitor has no selected client, it will just move the current focused window to it.
-- Rearrange and refocus appropriately after the operation.
+- Swap the currently focused window with the focused window on the next monitor (if one exists).
+- If the other monitor has no selected client, it will simply move the currently
+focused window there.
+- Automatically rearrange and refocus windows as needed after the operation.
 
-> You can customize this keybinding in your `config.def.h`:
+> You can customize this keybinding in your `config.def.h` file:
 >
 > ```c
 > { MODKEY|ShiftMask, XK_slash, swapwindow, {0} },
 > ```
 
-## Download
+Download
+--------
+* [dwm-swapwindows-20250509-00ea4c4.diff](dwm-swapwindows-20250509-00ea4c4.diff)
 
-- [dwm-swapwindows-20250510-cfb8627.diff](dwm-swapwindows-20250510-cfb8627.diff)
-
-## Author
-
-Jameel Sawafta <jameelhsawafta@gmail.com>
+Author
+------
+* Jameel Sawafta - <jameelhsawafta@gmail.com>
