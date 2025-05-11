@@ -9,11 +9,12 @@ It is particularly useful for users with multiple monitors who want to quickly
 rearrange workspaces by moving all windows and their tag assignments from one
 monitor to another.
 
-#### Usage
+Usage
+-----
 
 After applying the patch, the following key binding is available by default:
 
-**MODKEY + Shift + Apostrophe** (')
+**MODKEY + Shift + Apostrophe (')**
 
 This keybinding will:
 
@@ -22,7 +23,7 @@ This keybinding will:
 
 > You can customize this keybinding by modifying the following line in `config.def.h` file:
 >
-> ```c
+> ```
 > { MODKEY|ShiftMask, XK_apostrophe, swapmon, {0} },
 > ```
 
