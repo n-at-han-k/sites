@@ -18,6 +18,9 @@ from about 10:00 to 12:00 UTC.
 
 The mailinglist, website and source-code repositories will have some downtime.
 
+Update: the maintenance was finished at 2025-05-11 13:00 UTC.
+  There was a small issue with storage space, hence the 1h delay for fixing it.
+
 2025-04-30
 ----------
 [slstatus 1.1](//tools.suckless.org/slstatus) released: [download](//dl.suckless.org/tools/slstatus-1.1.tar.gz)
