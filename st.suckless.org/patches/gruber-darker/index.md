@@ -15,4 +15,4 @@ Download
 
 Author
 ------
-* [laingw](https://github.com/laingw) - <laingw36@gmail.com>
+* [inxret](https://github.com/inxret) - <inxret1@gmail.com>
