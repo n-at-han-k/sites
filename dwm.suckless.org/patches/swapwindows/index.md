@@ -9,7 +9,8 @@ selected window on another monitor.
 It is useful for moving a window between monitors while preserving window focus
 and layout order.
 
-#### Usage
+Usage
+-----
 
 After applying the patch, the following key binding is available by default:
 
@@ -24,7 +25,7 @@ focused window there.
 
 > You can customize this keybinding in your `config.def.h` file:
 >
-> ```c
+> ```
 > { MODKEY|ShiftMask, XK_slash, swapwindow, {0} },
 > ```
 
