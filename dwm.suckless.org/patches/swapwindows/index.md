@@ -9,8 +9,7 @@ selected window on another monitor.
 It is useful for moving a window between monitors while preserving window focus
 and layout order.
 
-Usage
------
+#### Usage
 
 After applying the patch, the following key binding is available by default:
 
@@ -18,7 +17,8 @@ After applying the patch, the following key binding is available by default:
 
 This keybinding will:
 
-- Swap the currently focused window with the focused window on the next monitor (if one exists).
+- Swap the currently focused window with the focused window on the next
+monitor (if one exists).
 - If the other monitor has no selected client, it will simply move the currently
 focused window there.
 - Automatically rearrange and refocus windows as needed after the operation.
