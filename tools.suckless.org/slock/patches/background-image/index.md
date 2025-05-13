@@ -1,5 +1,5 @@
-Control Clear
-=============
+Background Image
+================
 
 Description
 -----------
