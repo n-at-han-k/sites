@@ -15,4 +15,4 @@ Download
 
 Author
 ------
-* [inxret](https://github.com/inxret) - <inxret1@gmail.com>
+* [inxret](https://github.com/inxret) - <inxret28@gmail.com>
