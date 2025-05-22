@@ -29,9 +29,11 @@ Download
 --------
 * [dwm-cool-autostart-6.2.diff](dwm-cool-autostart-6.2.diff)
 * [dwm-cool-autostart-20240312-9f88553.diff](dwm-cool-autostart-20240312-9f88553.diff)
+* [dwm-cool_autostart-6.5.diff](dwm-cool_autostart-6.5.diff)
 
 Authors
 -------
 * bit6tream <bit6tream@cock.li> [bit6tream's gitlab](https://gitlab.com/bit9tream)
 * zsugabubus <zsugabubus@national.shitposting.agency>
 * Son Phan Trung <phantrungson17@gmail.com>
+* Luis Dolorier <lusedou@gmail.com>
