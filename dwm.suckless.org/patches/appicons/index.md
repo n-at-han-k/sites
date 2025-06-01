@@ -22,7 +22,8 @@ Each tag can display a maximum of `truncate_icons_after` icons, after which the
 
 Download
 --------
-* [dwm-appicons-6.5.diff](dwm-appicons-6.5.diff) (2025-01-04)
+* [dwm-appicons-6.5.diff](dwm-appicons-6.5.diff) (2025-01-04), *deprecated*
+* [dwm-appicons-20250601-c05f117.diff](dwm-appicons-20250601-c05f117.diff) (2025-06-01)
 
 Author
 ------
