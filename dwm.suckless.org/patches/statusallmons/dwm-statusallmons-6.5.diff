@@ -29,7 +29,7 @@ index 2829160..725e68b 100644
  		strcpy(stext, "dwm-"VERSION);
 -	drawbar(selmon);
 +	for(m = mons; m; m = m->next)
-+		drawbar(selmon);
++		drawbar(m);
  }
  
  void
