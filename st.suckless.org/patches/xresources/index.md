@@ -12,6 +12,7 @@ Download
 * [st-xresources-20181018-g30ec9a3.diff](st-xresources-20181018-g30ec9a3.diff)
 * [st-xresources-20190105-3be4cf1.diff](st-xresources-20190105-3be4cf1.diff)
 * [st-xresources-20200604-9ba7ecf.diff](st-xresources-20200604-9ba7ecf.diff)
+* [st-xresources-20230320-45a15676.diff](st-xresources-20230320-45a15676.diff)
 
 Authors
 -------
@@ -19,3 +20,4 @@ Authors
 * Devin J. Pohly - <djpohly@gmail.com> (git port)
 * Sai Praneeth Reddy - <spr.mora04@gmail.com> (read borderpx from xresources)
 * Benji Encalada Mora - [@benjifs](https://github.com/benjifs) (replace xfps and actionfps)
+* harishnkr - <hari2menon1234@gmail.com> (fix xresources bgcolour fgcolour and cscolour definitions)
