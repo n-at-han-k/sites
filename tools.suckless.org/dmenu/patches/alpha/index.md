@@ -12,6 +12,7 @@ Download
 --------
 * [dmenu-alpha-20210605-1a13d04.diff](dmenu-alpha-20210605-1a13d04.diff) (2021-06-05)
 * [dmenu-alpha-20230110-5.2.diff](dmenu-alpha-20230110-5.2.diff) (2023-01-10)
+* [dmenu-alpha-20250614-b1e217b.diff](dmenu-alpha-20250614-b1e217b.diff) (2025-06-14)
 
 Authors
 -------
