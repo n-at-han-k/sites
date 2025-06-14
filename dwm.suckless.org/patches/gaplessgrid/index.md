@@ -31,3 +31,6 @@ Download
 * [gaplessgrid.c](gaplessgrid.c) (dwm 5.6.1) (20090908)
 * [dwm-r1437-gaplessgrid.diff](dwm-r1437-gaplessgrid.diff) (20090704)
 * [dwm-5.2-gaplessgrid.diff](dwm-5.2-gaplessgrid.diff) (20081020)
+
+The following is gaplessgrid with support for fullgaps (to use with the dwm that was patched with fullgaps). Rename it to galessgrid.c 
+* [galessgrid-fullgaps.c](galessgrid-fullgaps.c)
