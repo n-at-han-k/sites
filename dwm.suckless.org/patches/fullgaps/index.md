@@ -27,9 +27,13 @@ fullgaps patch.)
 
 * [dwm-fullgaps-toggle-20200830.diff](dwm-fullgaps-toggle-20200830.diff)
 
+To add fullgaps to monocle use the following:
+* [dwm-monocle-fullgaps.diff](dwm-monocle-fullgaps.diff)
+
 Author
 ------
 * Maciej Janicki <mail@macjanicki.eu>
 * David Julien <swy7ch@protonmail.com> (20200504-b2e1dfc port)
 * Klein Bottle <kleinbottle4@gmail.com> (dwm-fullgaps-toggle...)
 * Luka Rapava <luka.rapava2004@gmail.com> (6.4 port)
+* André Desgualdo Pereira - desgua <desgua@gmail.com> (monocle-fullgaps)
