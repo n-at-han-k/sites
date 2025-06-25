@@ -3,14 +3,17 @@ bardwmlogo
 
 Description
 -----------
-This patch add dwm logo before tags on the left side of the status bar for aesthetic or branding purposes.
+This patch adds a DWM logo to the left side of the status bar, positioned before
+the tags, for aesthetic or branding purposes.
 
-* Introduces a new `DwmLogo` struct to store rectangle dimensions for the logo's strokes.
-* Defines a fixed logo width (`dwmlogowdth = 54`) and shifts tag drawing accordingly to avoid overlap.
-* Draws a dark background rectangle to distinguish the logo area visually.
-* Renders the logo using several rectangles `drw_rect()` to form the characters "dwm" in a pixel-art style.
+* Introduces a new `DwmLogo` struct to store the dimensions of the logo's strokes.
+* Defines a fixed logo width (`dwmlogowdth = 54`) and adjusts tag rendering to prevent overlap.
+* Draws a dark background rectangle to visually separate the logo area.
+* Uses multiple `drw_rect()` calls to render a pixel-art style "dwm" logo using rectangles.
 
-This patch is entirely visual and does not affect DWM's core functionality or performance. It can be useful for users who want a more personalized or distinctive look to their window manager.
+This patch is purely visual and does not impact DWM's core functionality or performance.
+It may appeal to users who want a more personalized or distinctive appearance
+for their window manager.
 
 ![bardwmlogo_1 screenshot](bardwmlogo_1.png)
 
@@ -20,4 +23,4 @@ Download
 
 Authors
 -------
-* Rizqi Nur Assyaufi - <bandithijo@gmail.com> (6.5)
+* Rizqi Nur Assyaufi - <bandithijo@gmail.com>
