@@ -210,12 +210,12 @@ This covers most console-based programs and programs from
 * [acme](http://acme.cat-v.org) - Rob Pike's framing text editor for Plan 9. Included in [plan9port](https://9fans.github.io/plan9port/).
 * [ed](https://9fans.github.io/plan9port/man/man1/ed.html) - [ED IS THE STANDARD TEXT EDITOR!](https://www.gnu.org/fun/jokes/ed-msg.html)
 * [ired](http://www.radare.org/r/) - A minimalist hexadecimal editor and bindiffer for p9, w32 and \*nix.
-* [mg](https://homepage.boetes.org/software/mg/) - A portable version of mg maintained by the OpenBSD team.
+* [mg](https://github.com/troglobit/mg) - A portable version of mg.
 * [mle](https://github.com/adsr/mle) - A small, flexible console text editor.
 * [nano](https://www.nano-editor.org/) - A pico clone - this is small simple code and easy to use.
 * [neatvi](https://github.com/aligrudi/neatvi) - A minimal vi implementation supporting bidirectional UTF-8
 * [nextvi](https://github.com/kyx0r/nextvi) - A continuation of neatvi development with more features.
-* [nvi](https://sites.google.com/a/bostic.com/keithbostic/vi) - A small, multiple file vi-alike.
+* [nvi](https://sites.google.com/a/bostic.com/keithbostic/the-berkeley-vi-editor-home-page) - A small, multiple file vi-alike.
 * [micro](https://micro-editor.github.io/) - A terminal text editor, written in go with common key bindings like ctrl-c to copy and ctrl-v to paste.
 * [sam](http://sam.cat-v.org/) - An editor by Rob Pike with inspiration from ed.
 * [sim](https://sim.ssnf.xyz/) - The sim text editor. Based on vim and sam.
