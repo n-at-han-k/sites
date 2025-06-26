@@ -1,17 +1,14 @@
-From f5073e9663578dbf5cf64695e60d7cc19dcafadf Mon Sep 17 00:00:00 2001
+From ccf3a9fa8391deabc463db6cd3846794828111d6 Mon Sep 17 00:00:00 2001
 From: Jakub Skowron <jakubskowron676@gmail.com>
-Date: Thu, 26 Jun 2025 13:18:36 +0200
+Date: Thu, 26 Jun 2025 21:00:08 +0200
 Subject: [PATCH] remove/add borders around floating windows
 
-This update adds functionality for floating windows to have the
-same behavior as tiled windows, which means their borders will be
-removed when unfocused and added back in when focused.
 ---
  dwm.c | 59 ++++++++++++++++++++++++++++++++++++++++++++++++++---------
  1 file changed, 50 insertions(+), 9 deletions(-)
 
 diff --git a/dwm.c b/dwm.c
-index 7b2bc88..f9e1477 100644
+index 7b2bc88..8377d2b 100644
 --- a/dwm.c
 +++ b/dwm.c
 @@ -141,6 +141,7 @@ typedef struct {
@@ -37,7 +34,7 @@ index 7b2bc88..f9e1477 100644
 +void
 +addborders(Client *c)
 +{
-+    if (c->isfloating || c->mon->lt[c->mon->sellt]->arrange == NULL) {
++    if (!c->isfullscreen && (c->isfloating || c->mon->lt[c->mon->sellt]->arrange == NULL)) {
 +        XWindowChanges wc;
 +
 +        wc.width = c->oldw;
@@ -81,7 +78,7 @@ index 7b2bc88..f9e1477 100644
 +void
 +removeborders(Client *c)
 +{
-+    if (c->isfloating || c->mon->lt[c->mon->sellt]->arrange == NULL) {
++    if (!c->isfullscreen && (c->isfloating || c->mon->lt[c->mon->sellt]->arrange == NULL)) {
 +        XWindowChanges wc;
 +
 +        wc.width = c->w;
