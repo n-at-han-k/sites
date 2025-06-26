@@ -12,6 +12,6 @@ Download
 --------
 * [dwm-unfocusednoborders-6.5.diff](dwm-unfocusednoborders-6.5.diff) (1.2K) (20250624)
 
-Author
-------
+Authors
+-------
 * Jakub Skowron - <jakubskowron676@gmail.com>
