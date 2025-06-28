@@ -1,23 +1,20 @@
-# dmenupadding
+dmenupadding
+============
 
-## Description
+Description
+-----------
+This is a port of the `dwm` statuspadding patch. It allows you to customize the horizontal
+and vertical padding in `dmenu`.
 
-This is a port of the dwm statuspadding patch.
+The configurable options in `config.def.h` are:
 
-It lets you customize the horizontal and vertical padding in dmenu.
+- `horizpadbar`: Horizontal padding for the bar
+- `vertpadbar`: Vertical padding for the bar
 
-The configurable options in config.def.h are:
+Download
+--------
+* [dmenu-dmenupadding-20250627-b1e217b.diff](dmenu-dmenupadding-20250627-b1e217b.diff)
 
-horizpadbar
-
-vertpadbar
-
-## Download
-
-- [dmenu-dmenupadding-20250627-b1e217b.diff](dmenu-dmenupadding-20250627-b1e217b.diff)
-
-## Authors
-
-- taep96 - <taep96@cock.li> (statuspadding)
-- cd (statuspadding)
-- [fartnuget](https://github.com/fartnuget)
+Authors
+-------
+* taep96 - <taep96@cock.li>
