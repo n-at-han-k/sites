@@ -3,7 +3,7 @@ dmenupadding
 
 Description
 -----------
-This is a port of the `dwm` statuspadding patch. It allows you to customize the horizontal
+This is a port of the `dwm` [statuspadding patch](//dwm.suckless.org/patches/statuspadding). It allows you to customize the horizontal
 and vertical padding in `dmenu`.
 
 The configurable options in `config.def.h` are:
@@ -17,4 +17,5 @@ Download
 
 Authors
 -------
-* taep96 - <taep96@cock.li>
+* taep96 - <taep96@cock.li>: original dwm patch
+* [fartnuget](https://github.com/fartnuget): dmenu port
