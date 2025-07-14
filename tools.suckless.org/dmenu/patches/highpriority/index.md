@@ -21,9 +21,10 @@ Download
 * [dmenu-highpriority-5.1.diff](dmenu-highpriority-5.1.diff)
 * [dmenu-highpriority-e35976f.diff](dmenu-highpriority-e35976f.diff)
 * [dmenu-highpriority-5.2.diff](dmenu-highpriority-5.2.diff)
+* [dmenu-highpriority-5.3.diff](dmenu-highpriority-5.3.diff)
 
 Author
 ------
 * Takase
 * NRK (v5.1 and `e35976f` rebase, allocation related cleanup)
-* Bhargav Das Gupta (v5.2)
+* Bhargav Das Gupta (v5.2, v5.3)
