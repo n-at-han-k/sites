@@ -6,7 +6,7 @@ Description
 This patch mimics the [activetagindicatorbar patch](https://dwm.suckless.org/patches/activetagindicatorbar/),
 but with more flexible customization features:
 
-![full tag indicator screenshot](full-tag-indicator-screenshot.png)
+![full tag indicator screenshot](full-tag-indicator-screenshot.jpg)
 
 You should take a look at the [patch repository](https://github.com/nasccped/dwm-fulltag-indicator)
 for rice tips and code change documentation!
