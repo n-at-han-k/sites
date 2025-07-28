@@ -9,7 +9,10 @@ This patch is different from [cyclelayouts](../cyclelayouts) patch, because it d
 Download
 --------
 * [dwm-layoutscroll-6.2.diff](dwm-layoutscroll-6.2.diff)
+* [dwm-layoutscroll-6.5.diff](dwm-layoutscroll-6.5.diff)
 
-Author
+Authors
 --------
 * Fyodor Doletov - <doletov.fyodor@yandex.ru>
+* JeffOfBread - <JeffOfBreadCoding@gmail.com>
+
