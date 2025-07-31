@@ -15,6 +15,7 @@ Important
 
 Download
 --------
+* [slstatus-battery-notify-20250731-6eb7887.diff](slstatus-battery-notify-20250731-6eb7887.diff)
 * [slstatus-battery-notify-20240127-a56a0a5.diff](slstatus-battery-notify-20240127-a56a0a5.diff)
 
 Authors
