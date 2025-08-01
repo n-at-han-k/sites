@@ -1,5 +1,5 @@
 battery notify
-=========
+==============
 
 Description
 -----------
@@ -7,17 +7,18 @@ This diff adds a battery notifications for specific levels you defined to slstat
 It sends notification using "notify-send" command.
 In config.h file there is array called "notifiable_levels" add any levels you want.
 
-Important
----------
-* "libnotify" is required to be installed
-* Add ({battery_notify, "", "BAT1"},) to config file in args array - replace BAT1 with your battery name
-* FreeBSD and OpenBSD are not supported
+#### Important
+* "libnotify" is required to be installed.
+* Add ({battery_notify, "", "BAT1"},) to config file in args array - replace BAT1
+with your battery name.
+* FreeBSD and OpenBSD are not supported.
 
 Download
 --------
-* [slstatus-battery-notify-20250731-6eb7887.diff](slstatus-battery-notify-20250731-6eb7887.diff)
+* [slstatus-battery-notify-20250801-da6ca32.diff](slstatus-battery-notify-20250801-da6ca32.diff)
 * [slstatus-battery-notify-20240127-a56a0a5.diff](slstatus-battery-notify-20240127-a56a0a5.diff)
 
 Authors
 -------
 * keroles [github](https://github.com/keroles-ashraf-dev)
+* El Bachir - <bachiralfa@gmail.com> (2025-08-01)
