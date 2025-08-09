@@ -9,6 +9,14 @@ News
 
 [Atom feed](//suckless.org/atom.xml)
 
+2025-08-09
+----------
+* [dmenu 5.4](//tools.suckless.org/dmenu/) released: [download](//dl.suckless.org/tools/dmenu-5.4.tar.gz)
+* [dwm 6.6](//dwm.suckless.org) released: [download](//dl.suckless.org/dwm/dwm-6.6.tar.gz)
+* [slock 1.6](//tools.suckless.org/slock/) released: [download](//dl.suckless.org/tools/slock-1.6.tar.gz)
+* [st 0.9.3](//st.suckless.org/) released: [download](//dl.suckless.org/st/st-0.9.3.tar.gz)
+* [tabbed 0.9](//tools.suckless.org/tabbed) released: [download](//dl.suckless.org/tools/tabbed-0.9.tar.gz)
+
 2025-05-05
 ----------
 On Sunday, 2025-05-11
