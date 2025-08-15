@@ -19,7 +19,8 @@ for their window manager.
 
 Download
 --------
-* [dwm-bardwmlogo-6.5.diff](dwm-bardwmlogo-6.5.diff) (2024-03-19)
+* [dwm-bardwmlogo-6.6.diff](dwm-bardwmlogo-6.6.diff) (2025-08-15)
+* [dwm-bardwmlogo-6.5.diff](dwm-bardwmlogo-6.5.diff) (2025-06-24)
 
 Authors
 -------
