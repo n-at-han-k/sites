@@ -13,7 +13,7 @@ below if you use a custom one.
 
 	Shortcut shortcuts[] = {
 		...
-		{ TERMMOD, XK_Escape, keyboard_select, { 0 } },
+		{ TERMMOD, XK_Escape, keyboard_select, {.i =  0} },
 	};
 
 Notes
@@ -51,6 +51,7 @@ Download
 * [st-keyboard\_select-0.8.1.diff](st-keyboard_select-0.8.1.diff)
 * [st-keyboard\_select-0.8.2.diff](st-keyboard_select-0.8.2.diff)
 * [st-keyboard\_select-20200617-9ba7ecf.diff](st-keyboard_select-20200617-9ba7ecf.diff)
+* [st-keyboard\_select-20250816-a1193c1.diff](st-keyboard_select-20250816-a1193c1.diff)
 
 Authors
 -------
