@@ -18,4 +18,4 @@ Download
 Authors
 -------
 * taep96 - <taep96@cock.li>: original dwm patch
-* [fartnuget](https://github.com/fartnuget): dmenu port
+* <https://github.com/lto100>: dmenu port
