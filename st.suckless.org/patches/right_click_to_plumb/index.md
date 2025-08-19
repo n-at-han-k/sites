@@ -83,6 +83,7 @@ the current selection.
 
 Download
 --------
+* [simple_plumb-0.9.3.diff](simple_plumb-0.9.3.diff) (2025-08-19)
 * [simple_plumb-0.8.5.diff](simple_plumb-0.8.5.diff) (2022-01-18)
 * [simple_plumb.diff](simple_plumb.diff) (2020-04-10)
 
