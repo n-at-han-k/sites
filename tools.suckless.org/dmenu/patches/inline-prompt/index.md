@@ -18,4 +18,4 @@ Download
 
 Authors
 -------
-
+[Daan Blom](https://github.com/daanblom)
