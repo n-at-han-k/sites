@@ -146,7 +146,6 @@ This covers most console-based programs and programs from
 * [page](https://9fans.github.io/plan9port/man/man1/page.html) - Plan 9's image/document viewer program. Included with [plan9port](https://9fans.github.io/plan9port/).
 * [qiv](https://spiegl.de/qiv/) - Quick Image Viewer.
 * [nsxiv](https://codeberg.org/nsxiv/nsxiv/) - Neo Simple X Image Viewer, a fork of now unmaintained sxiv. Depends on xlib and imlib2.
-* [xli](http://web.aanet.com.au/gwg/xli.html)
 * [xwallpaper](https://github.com/stoeckmann/xwallpaper) - Minimalistic wallpaper utility
 * [xzgv](http://sourceforge.net/projects/xzgv/)
 
@@ -245,6 +244,7 @@ This covers most console-based programs and programs from
 * [mtm](https://github.com/deadpixi/mtm) - Micro Terminal Multiplexer.
 * [nq](https://github.com/chneukirchen/nq) - UNIX command line queue utility.
 * [piscou](https://github.com/lucas-mior/piscou) - Simple file previewer written in C.
+* [soap](https://github.com/FRIGN/soap) - Simple xdg-open replacement with fallback.
 * [pv](https://www.ivarch.com/programs/pv.shtml) - tool for monitoring the progress of data through a pipeline.
 * [smenu](https://github.com/p-gen/smenu) - A powerful and versatile CLI selection tool for interactive or scripting use.
 * [snore](https://github.com/bitsmanent/snore) - Sleep with feedback.
