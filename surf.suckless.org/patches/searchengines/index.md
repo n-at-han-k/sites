@@ -46,4 +46,4 @@ Author
 * Alex Puterbaugh (zombine) <puterbaugh0@gmail.com>
 * Ivan Tham (pickfire) <pickfire@riseup.net>
 * Juan Aguilar Santillana (botika) <aritmeeul@gmail.com>
-* Justinas Grigas - <jstn_as@protonmail.com> (20220804 version)
+* Justinas Grigas - <dev@jstnas.com> (20220804 version)

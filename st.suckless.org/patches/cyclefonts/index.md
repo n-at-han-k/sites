@@ -22,4 +22,4 @@ Download
 Author
 ------
 * Miles Alan - m@milesalan.com (0.8.4)
-* Justinas Grigas - <jstn_as@protonmail.com> (Updated versions)
+* Justinas Grigas - <dev@jstnas.com> (Updated versions)
