@@ -8,7 +8,7 @@ images to be used for window movement and resize operations.
 
 Download
 --------
-* [dwm-xcursor-20250909-cf65f6f.diff](dwm-xcursor-20250909-cf65f6f.diff)
+* [dwm-xcursor-20250909-74edc27.diff](dwm-xcursor-20250909-74edc27.diff)
 
 Author
 ------
