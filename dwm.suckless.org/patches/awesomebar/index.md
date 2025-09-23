@@ -22,6 +22,9 @@ Since this patch relies on knowing how big everything is in the taskbar, make su
 
 Changelog
 ---------
+2025-09-23:
+* fix: crashes when clicking the empty bar while a client is open on another tag
+
 2023-04-31:
 * Updated to dwm 6.4
 * add: awesomebarwithhover patch for visual hover effects in the bar with configurable colours (could probably be improved greatly)
@@ -50,6 +53,9 @@ Changelog
 
 Download
 --------
+Updated version from mpetco:
+* [dwm-awesomebar-20250923-6.6.diff](dwm-awesomebar-20250923-6.6.diff) (2025-09-23) 
+
 Updated version from G-OD:
 * [dwm-awesomebar-20230431-6.4.diff](dwm-awesomebar-20230431-6.4.diff) (2023-04-31) 
 * [dwm-awesomebarwithhover-20230431-6.4.diff](dwm-awesomebarwithhover-20230431-6.4.diff) (2023-04-31) 
@@ -74,3 +80,4 @@ Authors
 * Yegor Bayev <kodxpub@gmail.com>
 * Xac <jiangfengxi.c@gmail.com>
 * [G-OD](https://github.com/G-OD)
+* mpetco <https://codeberg.com/mpetco>
