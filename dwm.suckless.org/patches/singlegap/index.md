@@ -3,9 +3,8 @@ singlegap
 
 Description
 -----------
-This modifies the tilegap patch and shows gaps only when there is a single 
-window open. Exclusions can be added and horizontal/vertical gaps can be 
-configured in config.h.
+This modifies the tilegap patch to show gaps only when a single window is open.
+Exclusions can be added, and horizontal or vertical gaps can be configured in `config.h`.
 
 Download
 --------
