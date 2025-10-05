@@ -10,7 +10,7 @@ bar, borders, and focused window colors to reflect the current power state.
 
 Download
 --------
-* [dwm-chargecolor-20250727-51f68f6.diff](dwm-chargecolor-20250727-51f68f6.diff)
+* [dwm-chargecolor-20250918-2d2fd29.diff](dwm-chargecolor-20250918-2d2fd29.diff)
 
 Authors
 -------
