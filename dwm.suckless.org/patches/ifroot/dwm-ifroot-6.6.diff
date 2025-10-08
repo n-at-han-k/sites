@@ -18,7 +18,7 @@ index 81c3fc0..afc21ec 100644
  	{ MODKEY,                       XK_Return, zoom,           {0} },
  	{ MODKEY,                       XK_Tab,    view,           {0} },
 -	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
-+  { MODKEY|ShiftMask,             XK_c,      ifroot,         {.v = &(TwoFuncPtr){quit, killclient, {0}, {0} } } },
++	{ MODKEY|ShiftMask,             XK_c,      ifroot,         {.v = &(TwoFuncPtr){quit, killclient, {0}, {0} } } },
  	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
  	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
  	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
@@ -31,10 +31,10 @@ index 4f345ee..b144e90 100644
  } Rule;
  
 +typedef struct {
-+  void (*func1)(const Arg *arg);
-+  void (*func2)(const Arg *arg);
-+  const Arg arg1;
-+  const Arg arg2;
++	void (*func1)(const Arg *arg);
++	void (*func2)(const Arg *arg);
++	const Arg arg1;
++	const Arg arg2;
 +} TwoFuncPtr;
 +
  /* function declarations */
@@ -55,12 +55,12 @@ index 4f345ee..b144e90 100644
 +void
 +ifroot(const Arg *arg)
 +{
-+  TwoFuncPtr *funcs = (TwoFuncPtr*)arg->v;
-+  if (!selmon->sel) { /*no client -> root window*/
-+    funcs->func1(&(funcs->arg1));
-+    return;
-+  } /*client window*/
-+  funcs->func2(&(funcs->arg2));
++	TwoFuncPtr *funcs = (TwoFuncPtr*)arg->v;
++	if (!selmon->sel) { /*no client -> root window*/
++		funcs->func1(&(funcs->arg1));
++		return;
++	} /*client window*/
++	funcs->func2(&(funcs->arg2));
 +}
 +
  void

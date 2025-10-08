@@ -1,11 +1,12 @@
 ifroot
-=============
+======
 
 Description
 -----------
-Adds the ifroot function which can assign two functions to one keybind.
-The first function passed to ifroot will be invoked if no client is focused, the second if there is one.
-It is mainly intended to be used for using the same keybinding to close windows and quit dwm or open the power menu.
+Adds the `ifroot` function, which allows assigning two actions to a single keybinding.
+The first action is executed when no client is focused, and the second when a client
+is focused. This is mainly intended for using the same keybinding to close windows,
+quit dwm, or open the power menu.
 
 Download
 --------
