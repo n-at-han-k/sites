@@ -52,10 +52,12 @@ dwm, which stacker changes to `MODKEY|ShiftMask+BackSpace`.
 
 Download
 --------
+* [dwm-stacker-6.6.diff](dwm-stacker-6.6.diff)
 * [dwm-stacker-6.2.diff](dwm-stacker-6.2.diff) (12/06/2020)
 * [dwm-stacker-6.0.diff](dwm-stacker-6.0.diff)
 
 Author
 ------
+* thjbdvlt (updated for 6.6) (thibault2@ik.me)
 * MLquest8 (updated for 6.2) (miskuzius at gmail.com)
 * Carlos Pita (memeplex) <carlosjosepita@gmail.com>
