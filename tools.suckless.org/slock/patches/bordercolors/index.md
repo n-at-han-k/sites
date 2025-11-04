@@ -1,10 +1,10 @@
 Bordercolors
-================
+============
 
 Description
 -----------
-Changes default coloring behavior to use the window's colored border for 
-input status feedback instead of changing the entire background.
+Changes default coloring behavior to use the window's colored border for input
+status feedback instead of changing the entire background.
 
 Download
 --------
