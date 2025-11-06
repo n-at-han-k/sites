@@ -1,12 +1,11 @@
 mmnametags
-==================
+==========
 
 Description
 -----------
-This patch is an addition to the
-[nametag](https://dwm.suckless.org/patches/nametag/) patch but each monitor has
-it's own unique set of nametags. You do not need to install the original
-nametag patch first.
+This patch builds upon the [nametag](https://dwm.suckless.org/patches/nametag/) patch,
+but allows each monitor to have its own unique set of nametags. You don’t need
+to install the original nametag patch beforehand.
 
 Download
 --------
@@ -14,5 +13,5 @@ Download
 * [dwm-mmnametags-prepend-6.6.diff](dwm-mmnametags-prepend-6.6.diff)
 
 Author
--------
+------
 * Austin Larsen - <austin.larsen@mailfence.com>
