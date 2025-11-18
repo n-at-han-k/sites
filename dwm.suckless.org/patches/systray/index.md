@@ -21,6 +21,11 @@ Download
 * [dwm-git-20130119-systray.diff](dwm-git-20130119-systray.diff) (19946b)
 * [dwm-systray-6.0.diff](dwm-systray-6.0.diff) (19788b) (20130119)
 
+If you'd like to combine [barpadding](../barpadding/) and the systray patch,
+you can apply the following patch on top of dwm-barpadding-6.6.diff
+
+* [dwm-systray-6.6.diff](dwm-systray-6.6.diff) (28K) (20251118)
+
 Author
 ------
 * Jan Christoph Ebersbach <jceb@e-jc.de>
@@ -30,3 +35,4 @@ Author
 * Igor Gevka (cb3f58a (6.2), 20200216)
 * Michel Boaventura <michel.boaventura@protonmail.com> (f09418b)
 * Hritik Vijay <hr1t1k@protonmail.com> (20210418)
+* Markus Hanetzok (20251118)
