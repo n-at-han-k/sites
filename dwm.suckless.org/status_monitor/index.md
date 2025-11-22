@@ -126,7 +126,6 @@ Feel free to add your own status monitors here (keeping the list sorted).
 
 Helper Functions In The Shell
 -----------------------------
-* [posix scripts](https://notabug.org/kl3/scripts) - basic collection of simple, fully POSIX sh compliant scripts to get various system information
 * [i3blocks-contrib](https://github.com/vivien/i3blocks-contrib) - collection of python, perl and shell scripts
 * Free memory: `free -h | awk '(NR==2){ print $4 }'`
 * Volume (device Master): `amixer get Master | awk -F'[][]' 'END{ print $4":"$2 }'`
