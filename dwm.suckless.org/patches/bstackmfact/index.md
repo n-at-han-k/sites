@@ -8,7 +8,7 @@ Updates and combines the [bottomstack patch](../bottomstack/) and the
 (default binding: Shift+Mod+[h,l]) while using the bottomstack layout changes
 the width of the first client in the stack and distrubutes the remaining
 screen width equally among the other clients. The effect of `setmfact`
-on the tiling layout remains as in the same as in the original stackmfact patch.
+on the tiling layout remains the same as in the original stackmfact patch.
 
 Download
 --------
